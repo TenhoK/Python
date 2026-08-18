@@ -1,0 +1,8 @@
+suoraKulmaisenKanta = float(input("Anna suorakulmion kanta: "))
+suoraKulmaisenKorkeus = float(input("Anna suorakulmion korkeus: "))
+
+piiri = 2 * (suoraKulmaisenKanta + suoraKulmaisenKorkeus)
+pinta_ala = suoraKulmaisenKanta * suoraKulmaisenKorkeus
+
+print("Suorakulmion piiri on", piiri)
+print("Suorakulmion pinta-ala on", pinta_ala)
