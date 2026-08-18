@@ -1,2 +1,1 @@
-print("Hei, maailma!")
-print("Uusi rivi lisätty!")
+print("Hei, olen Tenho Koponen!")
