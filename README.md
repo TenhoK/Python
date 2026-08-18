@@ -1,2 +1,2 @@
 # Python
-python harjoittelua
+moduuli 1
