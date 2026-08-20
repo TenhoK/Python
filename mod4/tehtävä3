@@ -1,0 +1,24 @@
+sukupuoli = input("Biologinn sukupuolesi? ")
+
+sukupuoliArvo = 0
+
+if sukupuoli == "Mies" or sukupuoli == "mies":
+    sukupuoliArvo = 0
+elif sukupuoli == "Nainen" or sukupuoli == "nainen":
+    sukupuoliArvo = 1
+
+hemoglobiiniArvo = int(input("Mikä on hemoglobiiniarvosi? "))
+
+if sukupuoliArvo == 1 and hemoglobiiniArvo < 117:
+    print("Hemoglobiiniarovsi on alhainen!")
+elif sukupuoliArvo == 1 and hemoglobiiniArvo > 175:
+    print("Hemoglobiiniarovsi on korkea!")
+elif sukupuoliArvo == 1:
+    print("Hemoglobiiniarovsi on normaali!")
+
+if sukupuoliArvo == 0 and hemoglobiiniArvo < 134:
+    print("Hemoglobiiniarovsi on alhainen!")
+elif sukupuoliArvo == 0 and hemoglobiiniArvo > 195:
+    print("Hemoglobiiniarovsi on korkea!")
+elif sukupuoliArvo == 0:
+    print("Hemoglobiiniarovsi on normaali!")

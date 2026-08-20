@@ -1,0 +1,8 @@
+kuhanPituus = int(input("Kuinka pitkä kuha on? "))
+
+kuhanMinPituus = 37
+
+if kuhanPituus < kuhanMinPituus:
+    print("Kuha on", (kuhanPituus - kuhanMinPituus) * -1, "cm liian lyhyt! Laske kuha takaisin järveen")
+elif kuhanPituus > kuhanMinPituus:
+    print("Kuha on tarpeksi pitkä!")
