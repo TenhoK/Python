@@ -1,0 +1,10 @@
+name = input("Mikä nimesi on? ")
+
+print("")
+print("Hei", name,"!")
+print("")
+
+age = int(input("Kuinka vanha olet? "))
+
+print("")
+print("Olet", age, "vuotta vanha!")
