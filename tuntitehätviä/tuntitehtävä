@@ -1,0 +1,10 @@
+korkeus = float(input("Seinän korkeus: "))
+leveys = float(input("Seinän leveys: "))
+
+pintaAla  = leveys * korkeus
+print("Pinta-ala on ", (type,pintaAla))
+
+litraPerNeliö = float(input("Kuinka moneta litraa menee per neliö?: "))
+
+maaliaTarvitsee = litraPerNeliö * pintaAla
+print("Maalia tarvitsee litroina", maaliaTarvitsee)

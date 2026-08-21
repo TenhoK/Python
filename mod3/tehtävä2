@@ -4,4 +4,4 @@ sade = float(input("Anna ympyrän säde: "))
 
 pintaAla = math.pi * sade ** 2
 
-print("Ympyrän pinta-ala on", pintaAla)
+print("Ympyrän pinta-ala on: ", pintaAla)
