@@ -1,0 +1,20 @@
+tunnus = "python"
+salasana = "rules"
+
+yritykset = 0
+
+while True:
+    tun  = input("Anna käyttäjätunnus: ")
+    sal = input("Anna salasana: ")
+
+    yritykset = yritykset + 1
+
+    if tun == tunnus and sal == salasana:
+        print("Tervetuloa")
+        break
+
+    if yritykset >= 5:
+        print("Pääsy evätty")
+        break
+
+
