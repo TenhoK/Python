@@ -1,6 +1,6 @@
 import math
 
-sade = float(input("Anna ympyrän säde!: "))
+sade = float(input("Anna ympyrän säde: "))
 
 pintaAla = math.pi * sade ** 2
 
