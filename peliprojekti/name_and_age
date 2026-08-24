@@ -8,3 +8,20 @@ age = int(input("Kuinka vanha olet? "))
 
 print("")
 print("Olet", age, "vuotta vanha!")
+
+if age < 12:
+    print("Olet liian nuori pelaamaan tätä peliä :(")
+    exit()
+else:
+    print("Tervetuloa pelaamaan", name,"!")
+
+print("TENHON PELI PROJEKTI")
+print("")
+print("")
+
+vastaus = print("Kirjoita jatka jos tahdot jatkaa tai lopeta jos tahdot lopettaa")
+
+if vastaus == "jatka":
+    print("Jatketaan peliä!")
+if vastaus == "lopeta":
+    print("")
