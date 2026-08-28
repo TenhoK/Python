@@ -1,0 +1,10 @@
+import random
+
+def HeitäNoppaa():
+    return random.randint(1,6)
+
+while True:
+    heitto = HeitäNoppaa()
+    print (heitto)
+    if heitto == 6:
+        break

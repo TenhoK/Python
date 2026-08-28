@@ -1,0 +1,27 @@
+luku = int(input("Anna vuosiluku: "))
+
+olympiaVuosi = False
+
+while olympiaVuosi == False:
+    
+    if luku < 4:
+        olympiaVuosi = False
+    elif luku == 2020:
+        olympiaVuosi = False
+        print("Oli coronavirus")
+    elif luku == 1916:
+        olympiaVuosi = False
+        print("Kesäolympialaiset peruttiin ensimmäisen maailmansodan vuoksi.")
+    elif luku == 1940:
+        olympiaVuosi = False
+        print("Toisen maailmansodan vuoksi perutut kesä- ja talvikisat. Kesäkisat oli määrä pitää Tokiossa, mutta ne siirrettiin ensin Helsinkiin ennen kuin sota peruutti ne kokonaan.")
+    elif luku == 2021:
+        olympiaVuosi = True
+    elif luku % 4 == 0:
+            olympiaVuosi = True
+    
+    if olympiaVuosi:
+        print(f"{luku} oli olympiavuosi")
+    else:
+        print(f"{luku} ei ollut olympiavuosi")
+        luku = int(input("Anna vuosilulu: "))

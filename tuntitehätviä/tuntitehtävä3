@@ -1,0 +1,20 @@
+juomat = []
+
+laji = input("Mikä olet? ")
+if laji == "ihminen" or laji == "tonttu":
+    ikä = int(input("Kuinka vanha olet? "))
+
+juomat.append("kahvi")
+
+if laji == "ihminen" and ikä >= 18:
+    juomat.append("viini")
+if laji == "tonttu" and ikä >= 100:
+    juomat.append("olut")
+if laji == "robotti":
+    juomat.append("öljy")
+
+numero = 1
+
+for drink in juomat:
+    print(numero,"", drink)
+    numero = numero + 1

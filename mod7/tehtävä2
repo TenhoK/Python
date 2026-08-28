@@ -1,0 +1,12 @@
+import random
+
+maksimiLukumäärä = int(input("Anna maksimi määrä: "))
+
+def HeitäNoppaa():
+    return random.randint(1, maksimiLukumäärä)
+
+while True:
+    heitto = HeitäNoppaa()
+    print (heitto)
+    if heitto == maksimiLukumäärä:
+        break

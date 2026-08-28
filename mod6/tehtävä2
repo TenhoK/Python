@@ -1,0 +1,20 @@
+luvut = []
+
+while True:
+    luku = input("Anna kokonaisluku: ")
+    if luku == "":
+        break
+    luvut.append(int(luku))
+
+luvut.sort(reverse=True)
+
+maxLuvut = 0
+
+for luku in luvut:
+    print(luku)
+    maxLuvut = maxLuvut + 1
+    if maxLuvut >= 5:
+        break
+
+print(len(luvut))
+

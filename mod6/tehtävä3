@@ -1,0 +1,16 @@
+luku = int(input("Anna kokonaisluku: "))
+
+alkuLuku = True
+
+if luku < 2:
+    alkuLuku = False
+else:
+    for jakoLuku in range(2,luku):
+        if luku % jakoLuku == 0:
+            alkuLuku = False
+            break
+
+if alkuLuku:
+    print(f"{luku} on alkuluku")
+else:
+    print(f"{luku} ei ole alkuluku")

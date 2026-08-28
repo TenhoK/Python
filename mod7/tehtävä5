@@ -1,0 +1,24 @@
+lista = [1,2,3,4,5,6,7,8,9]
+
+def KarsiParittomat(karsittavaLista):
+    karsittuLista = []
+    for numero in karsittavaLista:
+        if numero % 2 == 0:
+            karsittuLista.append(numero)
+    return karsittuLista
+
+lista = KarsiParittomat(lista)
+print(lista)
+
+##lista = []
+lista.clear()
+lista2 = []
+
+luku = (input("Anna kokonaisluku: "))
+while luku != "":
+    lista.append((int)(luku))
+    luku = (input("Anna kokonaisluku: "))
+
+lista2 = lista.copy()
+lista = KarsiParittomat(lista)
+print(f"Alkuperäinen lista: {lista2}", f"Karsittu lista: {lista}")

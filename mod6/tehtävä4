@@ -1,0 +1,12 @@
+kaupungit = []
+maxKaupungit = 0
+
+while True:
+    kaupunki = input("Anna Kampunki: ")
+    maxKaupungit = maxKaupungit + 1
+    kaupungit.append(kaupunki)
+    if maxKaupungit >= 5:
+        break
+
+for kaupunki in kaupungit:
+    print(kaupunki)

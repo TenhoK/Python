@@ -1,0 +1,7 @@
+import random
+arpaKuutiot = int(input("Anna arpakuutioiden lukumäärä: "))
+
+for ak in range(arpaKuutiot):
+    ak = random.randint(1,6)
+    print("Arpakuutio:", ak)
+

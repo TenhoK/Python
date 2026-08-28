@@ -1,0 +1,14 @@
+## Tein virheen tässä aluksi koska, yritin 3,785 enkä 3.785
+def PalautaLitroina(gallons):
+    litrat = gallons * 3.785
+    return litrat
+
+while True:
+    gallonit = float(input("Anna gallon määrä: "))
+
+    if gallonit < 0:
+        break
+
+    litrat = PalautaLitroina(gallonit)
+    if gallonit > 0:
+        print(f"Litroina: {litrat} ")

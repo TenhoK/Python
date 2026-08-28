@@ -1,0 +1,20 @@
+luvut = [1,1,1]
+
+def LisääSummaan(lista):
+    summa = 0
+    for luku in lista:
+        summa = summa + luku
+    return summa
+
+tulos = LisääSummaan(luvut)
+print(tulos)
+
+luvut = []
+
+luku = (input("Anna kokonaisluku: "))
+while luku != "":
+    luvut.append(int(luku))
+    luku = (input("Anna kokonaisluku: "))
+
+tulos = LisääSummaan(luvut)
+print(tulos)

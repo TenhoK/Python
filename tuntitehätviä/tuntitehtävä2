@@ -1,0 +1,23 @@
+lämpötila = float(input("Anna Lämpötila: "))
+if lämpötila < 0:
+    print ("Lämpötila on pakkasen puolella")
+else:
+    print("Lämpötila ei ole pakkasen puolella")
+
+opintoPisteet = int(input("Anna opintopisteiden määrä: "))
+if opintoPisteet >= 180:
+    print ("Opiskelijalla on vähintään 180 opintopistettä")
+else:
+    print ("Opiskelijalla on vähemmän 180 opintopistettä")
+
+onkoPilvistä = input("Onko sää lämmin? ")
+if onkoPilvistä == "lämmin" or onkoPilvistä == "Lämmin":
+    print("Sää ei ole pilvinen")
+
+kalankoko = int(input("Kalan koko cm: "))
+kalanIkä = int(input("Kalan ikä: "))
+if kalankoko > 10 and kalankoko <= 65 or kalanIkä > 10:
+    print("Kala on oikeanlainen")
+else:
+    print("Kala ei ole kelvollinen")
+
