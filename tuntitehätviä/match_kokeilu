@@ -1,0 +1,10 @@
+# Kokeilen match toimintoa
+tervehdys = input("Tervehdi: ")
+
+match tervehdys:
+    case "moro":
+        print("Hei!")
+    case "terve":
+        print("Tervehdys!")
+    case _:
+        print("Tuntematon tervehdys.")

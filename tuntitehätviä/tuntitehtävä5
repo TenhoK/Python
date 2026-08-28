@@ -1,0 +1,17 @@
+print("Maria oli rohkea ritatari, joka joutuin kansintaisteluun. Minkä aseen Maria ottaa?")
+
+ase = input("Valitse miekka, tikari vai keihäs: ")
+
+while ase != "miekka":
+
+    if ase == "tikari":
+        print("Ei kannata, se on huono ase! Anna toinen vaihtoehto")
+        ase = input("Valitse miekka, tikari vai keihäs:")
+    elif ase == "keihäs":
+            print("Ei kannata, se on huono ase! Anna toinen vaihtoehto")
+            ase = input("Valitse miekka, tikari vai keihäs: ")
+    else:
+            print("Anna kelvollinen vaihtoehto")
+            ase = input("Valitse miekka, tikari vai keihäs: ")
+
+print("Miekalla Maria voittaa varmasti!")

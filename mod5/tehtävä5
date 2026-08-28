@@ -3,7 +3,7 @@ salasana = "rules"
 
 yritykset = 0
 
-while True:
+while yritykset < 5:
     tun  = input("Anna käyttäjätunnus: ")
     sal = input("Anna salasana: ")
 
@@ -12,9 +12,5 @@ while True:
     if tun == tunnus and sal == salasana:
         print("Tervetuloa")
         break
-
-    if yritykset >= 5:
-        print("Pääsy evätty")
-        break
-
-
+else:
+    print("Pääsy evätty")
