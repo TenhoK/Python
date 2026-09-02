@@ -1,7 +1,7 @@
 luvut = []
 
 while True:
-    luku = (input("Anna luku: "))
+    luku = input("Anna luku: ")
     if luku == "":
         break
     luvut.append(int(luku))

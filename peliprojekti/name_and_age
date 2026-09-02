@@ -18,10 +18,23 @@ else:
 print("TENHON PELI PROJEKTI")
 print("")
 print("")
+vastaus = input("Kirjoita (jatka) jatkaaksesi peliä, kirjoita (moi) jos tahdot tervehdyksen tai (lopeta) jos tahdot lopettaa ")
 
-vastaus = print("Kirjoita jatka jos tahdot jatkaa tai lopeta jos tahdot lopettaa")
+while True:
+    
+    if vastaus == "jatka":
+        print("Jatketaan peliä!")
 
-if vastaus == "jatka":
-    print("Jatketaan peliä!")
-if vastaus == "lopeta":
+    if vastaus == "moi":
+        print("Moi ", name)
+
+    if vastaus == "lopeta":
+        print("Peli loppui ")
+        break
+
+    print("TENHON PELI PROJEKTI")
     print("")
+    print("")
+    vastaus = input("Kirjoita (jatka) jos tahdot jatkaa, kirjoita (moi) jos tahdot tervehdyksen tai (lopeta) jos tahdot lopettaa ")
+
+
