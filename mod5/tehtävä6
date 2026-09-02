@@ -1,0 +1,12 @@
+# aika vaikea tehtävä
+import math
+
+pisteet = input("Anna pisteiden määrä: ")
+
+nurkka1 = range(-1,-1)
+nurkka2 = range(1,-1)
+nurkka3 = range(1,1)
+nurkka4 = range(-1,1)
+
+pii = math.pi
+
