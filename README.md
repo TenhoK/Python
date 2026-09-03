@@ -14,3 +14,11 @@ Tein tehtävät 1-6.
 
 Tein tehtävät 1-4.
 
+## Moduuli 5
+
+Tein tehtävät 1-6.
+
+## Moduuli 6
+
+Tein tehtävät 1-4.
+
