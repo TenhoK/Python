@@ -1,0 +1,15 @@
+nimet = {""}
+nimi = input("Anna nimi: ")
+
+while nimi != "":
+    
+    if nimi not in nimet:
+        print("Uusi nimi")
+
+    if nimi in nimet:
+            print("Aiemmin syötetty nimi")
+
+    nimet.add(nimi)
+    nimi = input("Anna nimi: ")
+
+print(nimet)

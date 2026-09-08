@@ -1,0 +1,3 @@
+halkaisija = float(input("Anna pizzan halkaisija cm: "))
+pizzanHinta = float(input("Anna pizzan hinta euroina: "))
+

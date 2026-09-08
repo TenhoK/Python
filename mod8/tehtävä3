@@ -1,0 +1,22 @@
+lentoasemaTiedot = {"EFHK" : "Helsinki", "EFOU" : "Oulu", "EFRO" : "Rovaniemi"}
+
+toiminto = input("Tahdotko lisätä (lisää), hakea (hae), tai lopettaa (lopeta): ")
+
+while toiminto != "lopeta":
+
+    if toiminto == "lisää":
+        icao = input("Anna ICAO-koodi: ")
+        nimi = input("Anna lentokentän nimi: ")
+        lentoasemaTiedot[icao] = nimi
+        print(lentoasemaTiedot[icao], "Lisätty")
+        toiminto = input("Tahdotko lisätä (lisää), hakea (hae), tai lopettaa (lopeta): ")
+
+    if toiminto == "hae":
+        icao = input("Anna lentokentän ICAO-koodi: ")
+        print(lentoasemaTiedot[icao])
+        toiminto = input("Tahdotko lisätä (lisää), hakea (hae), tai lopettaa (lopeta): ")
+
+    if toiminto == "lopeta":
+        print("Ohjelma lopetettu")
+
+

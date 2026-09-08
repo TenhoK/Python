@@ -1,0 +1,13 @@
+kuukaudet = ("tammi", "helmi", "maalis", "huhti", "touko", "kesä", "heinä", "elo", "syys", "loka", "marras", "joulu")
+vuodenAjat = ("kevät", "kesä", "syksy", "talvi")
+numero = int(input("Anna kuukauden numero: "))
+kuukausi = kuukaudet[numero - 1]
+#print(kuukausi,"kuu", sep="")
+if numero < 3 or numero == 12:
+    print("On talvi")
+elif numero < 6:
+    print("On kevät")
+elif numero < 10:
+    print("On kesä")
+elif numero <= 11:
+    print("On syksy")

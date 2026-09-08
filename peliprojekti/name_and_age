@@ -5,6 +5,21 @@ print("Hei", name,"!")
 print("")
 
 age = int(input("Kuinka vanha olet? "))
+inventaario = []
+
+def LisääEsine():
+    print("")
+    esine = input("Mitä tahdot lisätä reppuun? ")
+    inventaario.append(esine)
+
+def NäytäInventaario():
+    if len(inventaario) == 0:
+        print("Reppusi on tyhjä.")
+    else:
+        print("")
+        print("Repussasi on:")
+        for esine in inventaario:
+            print(esine)
 
 print("")
 print("Olet", age, "vuotta vanha!")
@@ -18,15 +33,18 @@ else:
 print("TENHON PELI PROJEKTI")
 print("")
 print("")
-vastaus = input("Kirjoita (jatka) jatkaaksesi peliä, kirjoita (moi) jos tahdot tervehdyksen tai (lopeta) jos tahdot lopettaa ")
+vastaus = input("(jatka) jatka peliä, (lisää) lisää inventoriin, (näytä) näytä inventori, (lopeta) lopeta peli ")
 
 while True:
     
     if vastaus == "jatka":
         print("Jatketaan peliä!")
 
-    if vastaus == "moi":
-        print("Moi ", name)
+    if vastaus == "lisää":
+        LisääEsine()
+
+    if vastaus == "näytä":
+        NäytäInventaario()
 
     if vastaus == "lopeta":
         print("Peli loppui ")
@@ -35,6 +53,5 @@ while True:
     print("TENHON PELI PROJEKTI")
     print("")
     print("")
-    vastaus = input("Kirjoita (jatka) jos tahdot jatkaa, kirjoita (moi) jos tahdot tervehdyksen tai (lopeta) jos tahdot lopettaa ")
-
+    vastaus = input("(jatka) jatka peliä, (lisää) lisää inventoriin, (näytä) näytä inventori, (lopeta) lopeta peli ")
 

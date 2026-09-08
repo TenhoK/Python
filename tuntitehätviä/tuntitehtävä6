@@ -1,0 +1,27 @@
+liukuLuvut = [3.0, 4.0, 5.0]
+
+def Average(luvut):
+    lukujenSumma = sum(luvut)
+    lukujenMäärä = len(luvut)
+    keskiarvo = lukujenSumma / lukujenMäärä
+    print("Keskiarvo: ", keskiarvo)
+
+Average(liukuLuvut)
+
+liukuLuvut2 = [
+    [1.0, 2.0, 3.0],
+    [4.0, 5.0, 6.0],
+    [7.0, 8.0, 9.0],
+]
+
+def AverageGrade(luvut):
+    keskiarvot = []
+
+    for lista in luvut:
+        keskiarvo = Average(lista)
+        keskiarvot.append(keskiarvo)
+
+    return keskiarvot
+
+AverageGrade(liukuLuvut2)
+
