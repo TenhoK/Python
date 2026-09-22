@@ -1,0 +1,82 @@
+class Huone():
+    def __init__(self, nimi, oikea, vasen, taka, etu):
+        self.nimi = nimi
+        self.oikea = oikea
+        self.vasen = vasen
+        self.etu = etu
+        self.taka = taka
+
+huoneet = []
+
+huone1 = Huone("Huone1", "Huone2", "Seinä", "Seinä", "Huone4")
+huone2 = Huone("Huone2", "Huone3", "Huone1", "Seinä", "Huone5")
+huone3 = Huone("Huone3", "Seinä", "Huone2", "Seinä", "Huone6")
+
+huone4 = Huone("Huone4", "Huone5", "Seinä", "Huone1", "Huone7")
+huone5 = Huone("Huone5", "Huone6", "Huone4", "Huone2", "Huone8")
+huone6 = Huone("Huone6", "Seinä", "Huone5", "Huone3", "Huone9")
+
+huone7 = Huone("Huone7", "Huone8", "Seinä", "Huone4", "Seinä")
+huone8 = Huone("Huone8", "Huone9", "Huone7", "Huone5", "Seinä")
+huone9 = Huone("Huone9", "Seinä", "Huone8", "Huone6", "Seinä")
+
+huoneet = [huone1, huone2, huone3, huone4, huone5, huone6, huone7, huone8, huone9]
+
+class Peli():
+    def __init__(self, huone, huoneet):
+        self.huone = huone
+        self.huoneet = huoneet
+
+    def EtsiHuone(self, nimi):
+        for huone in self.huoneet:
+            if huone.nimi == nimi:
+                return huone
+        return None
+
+    def Liiku(self, suunta):
+        if suunta == "oikea":
+            kohde = self.huone.oikea
+        elif suunta == "vasen":
+            kohde = self.huone.vasen
+        elif suunta == "ylös":
+            kohde = self.huone.etu
+        elif suunta == "alas":
+            kohde = self.huone.taka
+        else:
+            print("Tuntematon suunta.")
+            return
+
+        if kohde == "Seinä":
+            print("Sienä edessä!")
+        else:
+            self.huone = self.EtsiHuone(kohde)
+            print("Olet nyt huoneessa", self.huone.nimi)
+            self.piirrä_kartta()
+
+    
+    def piirrä_kartta(self):
+        print()
+        for r in range(2, -1, -1):
+            rivi = ""
+            for s in range(3):
+                numero = r * 3 + s + 1
+                nimi = "Huone" + str(numero)
+                if self.huone.nimi == nimi:
+                    rivi += "[ * ]"
+                else:
+                    rivi += "[ " + str(numero) + " ]"
+            print(rivi)
+        print()
+
+
+peli = Peli(huone1, huoneet)
+print("Suunnat: oikea, vasen, ylös, alas. Lopeta: lopeta")
+print("Aloitat huoneessa", peli.huone.nimi)
+peli.piirrä_kartta()
+
+komento = input("Mihin suuntaan? ")
+while komento != "lopeta":
+    peli.Liiku(komento)
+    komento = input("Mihin suuntaan? ")
+
+print("Peli päättyi.")

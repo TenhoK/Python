@@ -1,0 +1,48 @@
+import random
+
+laadut = ("Hyvä", "Huono", "Ylivoimainen")
+
+class Tavara:
+    def __init__(self, nimi):
+        self.nimi = nimi
+        self.laatu = random.choice(laadut)
+
+class Inventaario:
+    def __init__(self, reppu, loitsut):
+        loitsut = ["Välitön kuolema", "Välitön Parantuminen"]
+        self.loitsut = loitsut
+        self.reppu = reppu
+
+    def LisääReppuun(self, tavara):
+        self.reppu.append(tavara)
+
+    def NäytäReppu(self):
+        for tavara in self.reppu:
+            print(f"{tavara.nimi}, Laatu: {tavara.laatu}")
+
+    def NäytäLoitsut(self):
+        for loitsu in self.loitsut:
+            print(f"Loitsun nimi: {loitsu}")
+
+    def NäytäLoitsutJaTavarat(self):
+        self.NäytäReppu()
+        self.NäytäLoitsut()
+
+
+inventaario = Inventaario([], [])
+
+miekka = Tavara("Miekka")
+kilpi = Tavara("Kilpi")
+jousi = Tavara("Jousipyssy")
+
+inventaario.LisääReppuun(miekka)
+inventaario.LisääReppuun(kilpi)
+inventaario.LisääReppuun(jousi)
+
+inventaario.loitsut.append("Super hyppy")
+inventaario.loitsut.append("Nopeus")
+
+#inventaario.NäytäReppu()
+#inventaario.NäytäLoitsut()
+inventaario.NäytäLoitsutJaTavarat()
+

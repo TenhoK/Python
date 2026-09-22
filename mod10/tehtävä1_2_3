@@ -1,0 +1,74 @@
+
+class Hissi:
+    def __init__(self, alin, ylin):
+        self.alin = alin
+        self.ylin = ylin
+        self.nykyinenKerros = 0
+
+    def SiirryKerrokseen(self, uusiKerros):
+        while self.nykyinenKerros < uusiKerros:
+            self.KerrosYlos()
+
+        while self.nykyinenKerros > uusiKerros:
+            self.KerrosAlas()
+
+        if self.nykyinenKerros <= self.alin:
+            self.nykyinenKerros = self.alin
+            print("Hissi on nyt alimmassa kerroksessa 0")
+            return
+
+        if self.nykyinenKerros >= self.ylin:
+            self.nykyinenKerros = self.ylin
+            print("Hissi on nyt ylimmässä kerroksessa", self.ylin)
+
+    def KerrosYlos(self):
+        if self.nykyinenKerros >= self.ylin:
+            return
+
+        self.nykyinenKerros = self.nykyinenKerros + 1
+        print("Hissi on nyt kerroksessa", self.nykyinenKerros)
+
+    def KerrosAlas(self):
+        if self.nykyinenKerros <= self.alin:
+            return
+
+        self.nykyinenKerros = self.nykyinenKerros - 1
+        print("Hissi on nyt kerroksessa", self.nykyinenKerros)
+
+hissi = Hissi(0, 10)
+kerros = int(input("Anna kerros: "))
+
+while kerros > -1:
+    
+    hissi.SiirryKerrokseen(kerros)
+    kerros = int(input("Anna kerros: "))
+
+print("Hissi on nyt alimmassa kerroksessa")
+
+
+class Talo:
+    def __init__(self, alinKerros, ylinKerros, hissienMäärä):
+        self.alinKerros = alinKerros
+        self.ylinKerros = ylinKerros
+        self.hissienMäärä = hissienMäärä
+        self.hissit = []
+        for i in range(hissienMäärä):
+            self.hissit.append(Hissi(alinKerros, ylinKerros))
+
+    def AjaHissiä(self, hissin_numero, kohdekerros):
+        hissi = self.hissit[hissin_numero]
+        hissi.SiirryKerrokseen(kohdekerros)
+
+    def Palohälytys(self):
+        print("PALOHÄLYTYS! Kaikki hissit pohjakerrokseen!")
+        for hissi in self.hissit:
+            hissi.SiirryKerrokseen(self.alinKerros)
+
+talo = Talo(0, 10, 3)
+talo.AjaHissiä(0, 5)
+talo.AjaHissiä(1, 8)
+talo.AjaHissiä(2, 3)
+talo.Palohälytys()
+
+
+

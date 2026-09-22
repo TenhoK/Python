@@ -1,0 +1,56 @@
+
+
+class Auto:
+    def __init__(self, rekkari, huippu):
+        self.rekkari = rekkari
+        self.huippu = huippu
+        self.nopeus = 0
+        self.matka = 0
+
+    def Kiihdytä(self, nopeus):
+        self.nopeus = self.nopeus + nopeus
+
+        if self.nopeus > self.huippu:
+            self.nopeus = self.huippu
+
+        if self.nopeus < 0:
+            self.nopeus = 0
+
+        print("Auton nopeus:", self.nopeus)
+
+    def Kulje(self, matka):
+        self.matka = self.matka + matka * self.nopeus
+        print("Auton kulkema matka:", self.matka)
+
+
+auto = Auto("ABC-123", 142)
+
+print("Reksiteritunnus:", auto.rekkari)
+print("Huippunopeus:", auto.huippu)
+print("Nopeus:", auto.nopeus)
+print("Matka:", auto.matka)
+
+toiminto = input("Anna toiminto (kiihdytä), (jarruta), (pysähdy):")
+
+while toiminto != "pysähdy":
+    
+    if toiminto == "kiihdytä":
+        auto.Kiihdytä(30)
+        auto.Kiihdytä(70)
+        auto.Kiihdytä(50)
+
+    if toiminto == "jarruta":
+        auto.Kiihdytä(-200)
+        print("Hätäjarrutus!")
+
+    toiminto = input("Anna toiminto (kiihdytä), (jarruta), (pysähdy):")
+
+matka = int(input("Anna matka pituus:"))
+nopeus = int(input("Anna auton nopeus:"))
+
+while matka > 0:
+
+    auto.Kiihdytä(nopeus)
+    auto.Kulje(matka)
+    matka = int(input("Anna matka pituus:"))
+    nopeus = int(input("Muuta auton kmh nopeutta:"))

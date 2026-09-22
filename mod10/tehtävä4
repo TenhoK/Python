@@ -1,0 +1,66 @@
+import random
+
+class KilpaAuto:
+    def __init__(self, rekkari, huippu, nopeus, matka):
+        self.rekkari = rekkari
+        self.huippu = huippu
+        self.nopeus = nopeus
+        self.matka = matka
+
+    def Kiihdytä(self, nopeus):
+        self.nopeus = self.nopeus + nopeus
+
+        if self.nopeus > self.huippu:
+            self.nopeus = self.huippu
+
+        if self.nopeus < 0:
+            self.nopeus = 0
+
+        #print("Auton nopeus:", self.nopeus)
+
+    def Kulje(self, matka):
+        self.matka = self.matka + matka * self.nopeus
+        #print("Auton kulkema matka:", self.matka)
+
+class Kilpailu:
+    def __init__(self, nimi, pituus, kilpailijat):
+        self.nimi = nimi
+        self.pituus = pituus
+        self.kilpailijat = kilpailijat
+
+    def TuntiKului(self):
+        for auto in self.kilpailijat:
+            auto.Kulje(1)
+            muutos = random.randint(-15,10)
+            auto.Kiihdytä(muutos)
+
+    def TulostaTilanne(self):
+        for auto in self.kilpailijat:
+            print(f"Auto: {auto.rekkari}, Nopeus: {auto.nopeus}, Matka: {auto.matka}")
+
+    def KilpailuOhi(self):
+        for auto in self.kilpailijat:
+            if auto.matka > self.pituus:
+                print(f"{self.nimi} KILPAILU ON OHI !!!")
+                self.TulostaTilanne()
+                return True
+        return False
+
+kilpaAutot = []
+
+for i in range(1, 11):
+    huippu = random.randint(100,200)
+    rekkari = "ABC-" + str(i)
+    nopeus = 0
+    matka = 0
+    uusiAuto = KilpaAuto(rekkari, huippu, nopeus, matka)
+    kilpaAutot.append(uusiAuto)
+
+
+kilpailu = Kilpailu("Suur Romulalli", 8000, kilpaAutot)
+
+while not kilpailu.KilpailuOhi():
+    
+    kilpailu.TuntiKului()
+    kilpailu.TulostaTilanne()
+
