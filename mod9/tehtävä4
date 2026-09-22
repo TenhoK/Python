@@ -15,8 +15,6 @@ class KilpaAuto:
         if self.nopeus < 0:
             self.nopeus = 0
 
-        #print("Auton nopeus:", self.nopeus)
-
     def Kulje(self, matka):
         self.matka = self.matka + matka * self.nopeus
         #print("Auton kulkema matka:", self.matka)
