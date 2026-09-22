@@ -22,3 +22,19 @@ Tein tehtävät 1-5. Yritin tehtävää 6, mutta en tajunnut miten se tehdään.
 
 Tein tehtävät 1-4.
 
+## Moduuli 7
+
+Tein tehtävät 1-5.
+
+## Moduuli 8
+
+Tein tehtävät 1-3.
+
+## Moduuli 9
+
+Tein tehtävät 1-4.
+
+## Moduuli 10
+
+Tein tehtävät 1-4.
+
