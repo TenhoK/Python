@@ -1,0 +1,72 @@
+import random
+
+class Auto:
+    def __init__(self, rekkari, huippu):
+        self.rekkari = rekkari
+        self.huippu = huippu
+        self.nopeus = 0
+        self.matka = 0
+
+    def Kiihdytä(self, nopeus):
+        self.nopeus = self.nopeus + nopeus
+
+        if self.nopeus > self.huippu:
+            self.nopeus = self.huippu
+
+        if self.nopeus < 0:
+            self.nopeus = 0
+
+    def Kulje(self, matka):
+        self.matka = self.matka + matka * self.nopeus
+
+class SähköAuto(Auto):
+    def __init__(self, rekkari, huippu, akkuKapasiteetti):
+        super().__init__(rekkari, huippu)
+        self.akkuKapasiteetti = akkuKapasiteetti
+
+class PolttomoottoriAuto(Auto):
+    def __init__(self, rekkari, huippu, tankki):
+        super().__init__(rekkari, huippu)
+        self.tankki = tankki
+
+class Kilpailu:
+    def __init__(self, nimi, pituus, kilpailijat):
+        self.nimi = nimi
+        self.pituus = pituus
+        self.kilpailijat = kilpailijat
+
+    def TuntiKului(self):
+        for auto in self.kilpailijat:
+            auto.Kulje(1)
+            muutos = random.randint(-15,10)
+            auto.Kiihdytä(muutos)
+
+    def TulostaTilanne(self):
+        for auto in self.kilpailijat:
+            print(f"Auto: {auto.rekkari}, Nopeus: {auto.nopeus}, Matka: {auto.matka}")
+
+    def KilpailuOhi(self):
+        for auto in self.kilpailijat:
+            if auto.matka > self.pituus:
+                print(f"{self.nimi} KILPAILU ON OHI !!!")
+                self.TulostaTilanne()
+                return True
+        return False
+
+kilpaAutot = []
+
+sähköAuto = SähköAuto("ABC-15", 180, 52.5)
+kilpaAutot.append(sähköAuto)
+polttoMoottoriAuto = PolttomoottoriAuto("ACD-123", 165, 32.3)
+kilpaAutot.append(polttoMoottoriAuto)
+
+sähköAuto.Kiihdytä(100)
+polttoMoottoriAuto.Kiihdytä(100)
+
+kilpailu = Kilpailu("Sähkö vs Bensa", 8000, kilpaAutot)
+
+while not kilpailu.KilpailuOhi():
+    
+    kilpailu.TuntiKului()
+    kilpailu.TulostaTilanne()
+

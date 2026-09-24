@@ -5,21 +5,6 @@ print("Hei", name,"!")
 print("")
 
 age = int(input("Kuinka vanha olet? "))
-inventaario = []
-
-def LisääEsine():
-    print("")
-    esine = input("Mitä tahdot lisätä reppuun? ")
-    inventaario.append(esine)
-
-def NäytäInventaario():
-    if len(inventaario) == 0:
-        print("Reppusi on tyhjä.")
-    else:
-        print("")
-        print("Repussasi on:")
-        for esine in inventaario:
-            print(esine)
 
 print("")
 print("Olet", age, "vuotta vanha!")
@@ -29,7 +14,6 @@ if age < 12:
     exit()
 else:
     print("Tervetuloa pelaamaan", name,"!")
-
 
 
 
@@ -43,12 +27,14 @@ class Pelaaja():
     def LisääReppuun(self, uusiEsine):
         if uusiEsine.nimi == "Energia Juoma":
             self.energia += 50
+            print("")
             print(f"Energiaa lisätty! Enegiaa nyt: {self.energia}")
         self.esineet.append(uusiEsine)
 
     def Liiku(self, paikka):
         self.sijainti = paikka
         self.energia -= 20
+        print("")
         print(f"Energiaa jäljellä: {self.energia}")
 
 
@@ -65,8 +51,8 @@ class Esine():
 
 
 puhelin = Esine("Puhelin")
-lompakko = Esine("Lompakko")
 avaimet = Esine("Avaimet")
+lompakko = Esine("Lompakko")
 energiaJuoma = Esine("Energia Juoma")
 
 koulu = Paikka("Koulu", None, [], vaatii=avaimet)
@@ -83,18 +69,19 @@ koti = Paikka("Koti", puhelin, [olohuone, eteinen]) # MAKKARI
 
 pelaaja = Pelaaja(name, [], koti)
 
-print("TENHON KOULUMATKA PELI")
+print(f"{pelaaja.nimi} koulumatka peli")
 print("")
 print("")
 
 def LiikutaPelaajaa():
-    if pelaaja.sijainti.esine is not None:
-            vastaus = input(f"Täätlä löytyi esine: {pelaaja.sijainti.esine.nimi}. Kerätäänkö? y or n ")
-            if vastaus == "y":
-                print(f"Keräsit esineen: {pelaaja.sijainti.esine.nimi}")
-                pelaaja.LisääReppuun(pelaaja.sijainti.esine)
-                pelaaja.sijainti.esine = None
+    if pelaaja.sijainti.esine != None:
+        vastaus = input(f"Täätlä löytyi esine: {pelaaja.sijainti.esine.nimi}. Kerätäänkö? y or n ")
+        if vastaus == "y":
+            print(f"Keräsit esineen: {pelaaja.sijainti.esine.nimi}")
+            pelaaja.LisääReppuun(pelaaja.sijainti.esine)
+            pelaaja.sijainti.esine = None
     
+    print("")
     print("Mihin mennään seuraavaksi?")
     for paikka in pelaaja.sijainti.seuraavatPaikat:
         print("-", paikka.nimi)
@@ -102,19 +89,25 @@ def LiikutaPelaajaa():
     seuraavaPaikka = input("Valitse Vaihtoehto: ")
     for paikka in pelaaja.sijainti.seuraavatPaikat:
         if seuraavaPaikka == paikka.nimi:
-            if paikka.vaatii is not None and paikka.vaatii not in pelaaja.esineet:
+            if paikka.vaatii != None and paikka.vaatii not in pelaaja.esineet:
                 print(f"Et pääse paikkaan {paikka.nimi}, koska sinulta puuttuu: {paikka.vaatii.nimi}")
                 print("HÄVISIT PELIN! Et päässy ajoissa kouluun")
                 return True
             else:
                 print(f"Valitsit: {paikka.nimi}")
                 pelaaja.Liiku(paikka)
+
+                if pelaaja.energia < 0:
+                    print("HÄVISIT PELIN! Energia loppui ennen kuin pääsit kouluun")
+                    return True
     
     return False
 
 
 sijainti = koti
-print("On taas aikainen aamu ja aika lähteä kouluun... Heräät makkarista")
+print("Asut Helsingin Katajanokalla ja Karamalmille on pitkä ja monimutkainen matka.")
+print("Heräät makkarista ja on taas aikainen aamu ja aika lähteä kouluun...")
+print("")
 while True:
 
     if pelaaja.sijainti != koulu:
@@ -122,35 +115,5 @@ while True:
         if PeliOhi:
             break
     else:
-        print("Pääsit kouluun!")
+        print(f"Pääsit kouluun! Voitit peli {pelaaja.nimi}!")
         break
-
-
-print("TENHON PELI PROJEKTI")
-print("")
-print("")
-vastaus = input("(jatka) jatka peliä, (lisää) lisää inventoriin, (näytä) näytä inventori, (lopeta) lopeta peli ")
-
-while True:
-    
-    if vastaus == "jatka":
-        print("Jatketaan peliä!")
-
-    if vastaus == "lisää":
-        LisääEsine()
-
-    if vastaus == "näytä":
-        NäytäInventaario()
-
-    if vastaus == "lopeta":
-        print("Peli loppui ")
-        break
-
-    print("TENHON PELI PROJEKTI")
-    print("")
-    print("")
-    vastaus = input("(jatka) jatka peliä, (lisää) lisää inventoriin, (näytä) näytä inventori, (lopeta) lopeta peli ")
-
-
-
-
