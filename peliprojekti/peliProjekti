@@ -53,14 +53,15 @@ class Esine():
 puhelin = Esine("Puhelin")
 avaimet = Esine("Avaimet")
 lompakko = Esine("Lompakko")
-energiaJuoma = Esine("Energia Juoma")
+energiaJuoma1 = Esine("Energia Juoma")
+energiaJuoma2 = Esine("Energia Juoma")
 
 koulu = Paikka("Koulu", None, [], vaatii=avaimet)
-kauppa = Paikka("Kauppa", energiaJuoma, [koulu], vaatii=lompakko)
+kauppa = Paikka("Kauppa", energiaJuoma2, [koulu], vaatii=lompakko)
 juna = Paikka("Juna", None, [koulu, kauppa], vaatii=puhelin)
 dösä = Paikka("Dösä", None, [koulu, kauppa], vaatii=puhelin)
 pasila = Paikka("Pasila", None, [juna])
-steissi = Paikka("Steissi", energiaJuoma, [dösä, juna])
+steissi = Paikka("Steissi", energiaJuoma1, [dösä, juna])
 taksi = Paikka("Taksi", None, [steissi, pasila], vaatii=lompakko)
 ratikka = Paikka("Spora", None, [steissi, dösä])
 eteinen = Paikka("Eteinen", avaimet, [ratikka, taksi])
@@ -104,7 +105,6 @@ def LiikutaPelaajaa():
     return False
 
 
-sijainti = koti
 print("Asut Helsingin Katajanokalla ja Karamalmille on pitkä ja monimutkainen matka.")
 print("Heräät makkarista ja on taas aikainen aamu ja aika lähteä kouluun...")
 print("")
@@ -115,5 +115,5 @@ while True:
         if PeliOhi:
             break
     else:
-        print(f"Pääsit kouluun! Voitit peli {pelaaja.nimi}!")
+        print(f"Pääsit kouluun! Voitit peli {pelaaja.nimi}! Energiaa opiskelihin jäi: {pelaaja.energia}")
         break
