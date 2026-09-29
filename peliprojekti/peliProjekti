@@ -1,3 +1,18 @@
+import json
+
+def TallennaPeli():
+    esineidenNimet = []
+    for esine in pelaaja.esineet:
+        esineidenNimet.append(esine.nimi)
+
+    tallennus = {"nimi": pelaaja.nimi, "sijainti": pelaaja.sijainti.nimi, "energia": pelaaja.energia, "päästöt": pelaaja.päästöt, "esineet": esineidenNimet}
+    with open(f"tallennus_{pelaaja.nimi}.json", "w") as tiedosto:
+        json.dump(tallennus, tiedosto)
+    with open(f"tallennus_{pelaaja.nimi}.json", "r") as tiedosto:
+        dataLuettu = json.load(tiedosto)
+    print(f"Pelaaja: {dataLuettu["nimi"]}, Sijainti: {dataLuettu["sijainti"]}, Energia: {dataLuettu["energia"]}, Päästöt: {dataLuettu["päästöt"]}, Esineet: {dataLuettu["esineet"]}")
+
+
 name = input("Mikä nimesi on? ")
 
 print("")
@@ -16,13 +31,13 @@ else:
     print("Tervetuloa pelaamaan", name,"!")
 
 
-
 class Pelaaja():
     def __init__(self, nimi, esineet, sijainti):
         self.nimi = nimi
         self.esineet = esineet
         self.sijainti = sijainti
         self.energia = 100
+        self.päästöt = 0
 
     def LisääReppuun(self, uusiEsine):
         if uusiEsine.nimi == "Energia Juoma":
@@ -34,16 +49,20 @@ class Pelaaja():
     def Liiku(self, paikka):
         self.sijainti = paikka
         self.energia -= 20
+        self.päästöt += paikka.päästöt
         print("")
         print(f"Energiaa jäljellä: {self.energia}")
+        if self.päästöt > 0:
+            print(f"Päästöjä yhteensä: {self.päästöt}")
 
 
 class Paikka():
-    def __init__(self, nimi, esine, seuraavatPaikat, vaatii=None):
+    def __init__(self, nimi, esine, seuraavatPaikat, vaatii=None, päästöt=0):
         self.nimi = nimi
         self.esine = esine
         self.seuraavatPaikat = seuraavatPaikat
         self.vaatii = vaatii
+        self.päästöt = päästöt
 
 class Esine():
     def __init__(self, nimi):
@@ -59,10 +78,10 @@ energiaJuoma2 = Esine("Energia Juoma")
 koulu = Paikka("Koulu", None, [], vaatii=avaimet)
 kauppa = Paikka("Kauppa", energiaJuoma2, [koulu], vaatii=lompakko)
 juna = Paikka("Juna", None, [koulu, kauppa], vaatii=puhelin)
-dösä = Paikka("Dösä", None, [koulu, kauppa], vaatii=puhelin)
+dösä = Paikka("Dösä", None, [koulu, kauppa], vaatii=puhelin, päästöt=20)
 pasila = Paikka("Pasila", None, [juna])
 steissi = Paikka("Steissi", energiaJuoma1, [dösä, juna])
-taksi = Paikka("Taksi", None, [steissi, pasila], vaatii=lompakko)
+taksi = Paikka("Taksi", None, [steissi, pasila], vaatii=lompakko, päästöt=50)
 ratikka = Paikka("Spora", None, [steissi, dösä])
 eteinen = Paikka("Eteinen", avaimet, [ratikka, taksi])
 olohuone = Paikka("Olkkari", lompakko, [eteinen])
@@ -70,7 +89,8 @@ koti = Paikka("Koti", puhelin, [olohuone, eteinen]) # MAKKARI
 
 pelaaja = Pelaaja(name, [], koti)
 
-print(f"{pelaaja.nimi} koulumatka peli")
+print("")
+print(f"{pelaaja.nimi}n koulumatka peli")
 print("")
 print("")
 
@@ -107,6 +127,7 @@ def LiikutaPelaajaa():
 
 print("Asut Helsingin Katajanokalla ja Karamalmille on pitkä ja monimutkainen matka.")
 print("Heräät makkarista ja on taas aikainen aamu ja aika lähteä kouluun...")
+print("Tehtäväsi on päästä kouluun ennen kuin energiasi loppuu ja tuottaa mahdollisimman vähän päästöjä")
 print("")
 while True:
 
@@ -115,5 +136,5 @@ while True:
         if PeliOhi:
             break
     else:
-        print(f"Pääsit kouluun! Voitit peli {pelaaja.nimi}! Energiaa opiskelihin jäi: {pelaaja.energia}")
+        print(f"Pääsit kouluun! Voitit peli {pelaaja.nimi}! Energiaa opiskeluihin jäi {pelaaja.energia}% ja päästöjä matkalla syntyi: {pelaaja.päästöt}g CO₂")
         break
