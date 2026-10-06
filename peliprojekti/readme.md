@@ -4,7 +4,9 @@
 
 **Pelin idea**
 
-Pelaaja asuu Katajanokalla ja kouluun Karamalmille on pitkä ja monimutkainen matka. Aamulla kotona pitää muistaa ottaa mukaan tarvittavat tavarat, koska kaikkiin kulkuvälineisiin ei pääse ilman niitä. Matkalla pelaaja valitsee reittinsä itse eri kulkuneuvoilla esimerkiksi ratikalla, taksilla, junalla tai bussilla.
+Pelaaja asuu Katajanokalla ja kouluun Karamalmille on pitkä ja monimutkainen matka.
+Aamulla kotona pitää muistaa ottaa mukaan tarvittavat tavarat, koska kaikkiin kulkuvälineisiin ei pääse ilman niitä. 
+Matkalla pelaaja valitsee reittinsä itse eri kulkuneuvoilla esimerkiksi ratikalla, taksilla, junalla tai bussilla.
 
 **Pelin tavoite**
 
