@@ -1,11 +1,11 @@
-KOULUMATKAPELI
+
+{nimi}n KOULUMATKAPELI
 
 Kello on aikaisin aamulla. Asut Helsingin Katajanokalla, ja Karamalmille
 on pitkä ja monimutkainen matka. Herätyskello soi jo kolmatta kertaa.
 
 Tänään on tärkeä koulupäivä ja ennen lähtöä sinun pitää muistaa ottaa mukaan tavarasi, sillä kaikkialle
-ei pääse ilman niitä. Matkalla energiasi kuluu, joten valitse reittisi
-viisaasti.
+ei pääse ilman niitä. Matkalla energiasi kuluu, joten valitse reittisi viisaasti...
 
 Tehtäväsi on päästä kouluun ennen kuin energiasi loppuu.
 Samalla voit yrittää tehdä matkan mahdollisimman pienillä päästöillä.

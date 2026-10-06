@@ -1,4 +1,5 @@
 import json
+import os
 
 # LATAUS
 def LataaPeli(nimi):
@@ -26,6 +27,17 @@ def TallennaPeli():
 # FUNKITO PRINTTAUKSELLE
 def PrinttaaTallennetutuTiedot(dataLuettu):
     print(f"Pelaaja: {dataLuettu["nimi"]}, Sijainti: {dataLuettu["sijainti"]}, Energia: {dataLuettu["energia"]}%, Päästöt: {dataLuettu["päästöt"]}g CO2, Esineet: {dataLuettu["esineet"]}")
+
+# KANSIO
+kansio = os.path.dirname(os.path.abspath(__file__))
+# LUKEE TIEDOSTON KANSIOSTA
+def LueTiedosto(tiedostonNimi):
+    polku = os.path.join(kansio, tiedostonNimi)
+    try:
+        with open(polku, "r", encoding="utf-8") as tiedosto:
+            return tiedosto.read()
+    except FileNotFoundError:
+        return f"(Tiedostoa {polku} ei löytynyt.)"
 
 # KYSYY NIMEN JA IÄN. JOS ALLE 12V NII EI ANNA PELATA
 print("")
@@ -189,16 +201,9 @@ def LiikutaPelaajaa():
     return False
 
 
-
 # PELI ALKAA
-print("")
-print("")
-print(f"{pelaaja.nimi}n koulumatka peli")
-print("")
-print("Asut Helsingin Katajanokalla ja Karamalmille on pitkä ja monimutkainen matka.")
-print("Heräät makkarista ja on taas aikainen aamu ja aika lähteä kouluun...")
-print("Tehtäväsi on päästä kouluun ennen kuin energiasi loppuu ja tuottaa mahdollisimman vähän CO2 päästöjä")
-print("")
+intro = LueTiedosto("intro.txt")
+print(intro.replace("{nimi}", pelaaja.nimi))
 
 # TÄMÄ LOOPPII HOITAAN LIIKKUMISEN SIIHEN ASTI KUN PELAAJA SIJAINTI EI OLE KOULU
 while True:
