@@ -1,3 +1,33 @@
 # PeliProjekti
 
 **Tenho Koponen**
+
+**Pelin idea**
+Pelaaja asuu Katajanokalla, ja kouluun Karamalmille on pitkä ja monimutkainen matka. Aamulla kotona pitää muistaa ottaa mukaan tarvittavat tavarat, koska kaikkiin kulkuvälineisiin ei pääse ilman niitä. Matkalla pelaaja valitsee reittinsä itse: esimerkiksi ratikalla, taksilla, junalla tai bussilla.
+
+**Pelin tavoite**
+Päästä kouluun ennen kuin energia loppuu. Samalla pelaaja voi yrittää tehdä matkan mahdollisimman pienillä päästöillä.
+Peli voi päättyä kahdella tavalla häviöön jos pelaajalta puuttuu esine, jota seuraava paikka vaatii tai jos energia loppuu ennen kouluun pääsyä.
+
+**Toimintaperiaatteet**
+Peli etenee silmukassa. Jokaisella kierroksella:
+1. Jos nykyisessä paikassa on esine, pelaaja saa valita, kerääkö sen (y/n).
+2. Peli näyttää paikat, joihin nykyisestä paikasta pääsee.
+3. Pelaaja kirjoittaa haluamansa paikan nimen.
+4. Peli tarkistaa, onko pelaajalla paikan vaatima esine. Jos on, pelaaja siirtyy, energia vähenee ja päästöt kasvavat.
+5. Silmukka päättyy, kun pelaaja pääsee kouluun tai häviää.
+
+**Toiminnallisuudet**
+1. Pelaajan nimen ja iän kysyminen (alle 12-vuotiaat eivät voi pelata)
+2. Esittelyteksti ja ohjeet luetaan tiedostoista intro.txt ja ohjeet.txt
+3. Esineiden kerääminen reppuun
+4. Energian kuluminen joka siirrolla, energiajuoma palauttaa energiaa
+5. Esinevaatimukset kulkuvälineille ja koululle
+6. Päästöjen laskeminen ja näyttäminen
+7. Pelin tallennus ja jatkaminen tallennuksesta (JSON-tiedosto pelaajan nimellä)
+8. Voitto- ja häviöilmoitukset
+
+**Kestävä kehitys**
+1. Päästöt näkyvät pelaajalle. Jokaisella kulkuvälineellä on päästöarvo, ja kertyneet päästöt näytetään siirtojen jälkeen sekä pelin lopussa.
+2. Valinnalla on merkitystä. Taksi tuottaa moninkertaisesti enemmän päästöjä kuin ratikka tai juna. Pelaaja huomaa, että joukkoliikenne on vähäpäästöisempi tapa liikkua.
+3. Realistinen suhde. Päästöarvot ovat suuntaa-antavia, mutta niiden keskinäinen suhde vastaa todellisuutta: henkilöauto tuottaa matkustajaa kohden selvästi enemmän päästöjä kuin sähköllä kulkeva raideliikenne.

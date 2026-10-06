@@ -119,7 +119,7 @@ eteinen = Paikka("Eteinen", avaimet, [ratikka, taksi])
 olohuone = Paikka("Olkkari", lompakko, [eteinen])
 koti = Paikka("Koti", puhelin, [olohuone, eteinen]) # MAKKARI
 
-# LISTAT LATAUSTA VARTEN
+# LISTAT PELIN LATAUSTA VARTEN
 kaikkiEsineet = [puhelin, avaimet, lompakko, energiaJuoma1, energiaJuoma2]
 kaikkiPaikat = [koti, olohuone, eteinen, ratikka, taksi, steissi, pasila, dösä, juna, kauppa, koulu]
 
@@ -202,6 +202,8 @@ def LiikutaPelaajaa():
 
 
 # PELI ALKAA
+ohjeet = LueTiedosto("ohjeet.txt")
+print(ohjeet)
 intro = LueTiedosto("intro.txt")
 print(intro.replace("{nimi}", pelaaja.nimi))
 
