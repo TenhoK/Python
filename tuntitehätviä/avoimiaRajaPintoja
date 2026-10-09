@@ -1,0 +1,25 @@
+import requests
+
+url = "https://api.example.com/weather"
+
+kaupunki = input("Anna kaupunki: ")
+
+params = {
+    "city": kaupunki,
+    "units": "metric"
+}
+
+response = requests.get(url, params=params)
+
+if response.status_code == 200:
+    data = response.json()
+
+    print("Koko vastaus:")
+    print(data)
+
+    print("Kaupunki:", data["name"])
+    print("Lämpötila:", data["temperature"], "°C")
+
+else:
+    print("API-pyyntö epäonnistui.")
+    print("Statuskoodi:", response.status_code)
